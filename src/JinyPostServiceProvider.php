@@ -32,8 +32,16 @@ class JinyPostServiceProvider extends ServiceProvider
     {
         /* 라이브와이어 컴포넌트 등록 */
         $this->app->afterResolving(BladeCompiler::class, function () {
-       
-            
+            // Blog
+            Livewire::component('site-post-list',
+                \Jiny\Posts\Http\Livewire\SitePostList::class);
+            Livewire::component('site-post-view',
+                \Jiny\Posts\Http\Livewire\SitePostView::class);
+            Livewire::component('site-post-comment',
+                \Jiny\Posts\Http\Livewire\SitePostComment::class);
+            Livewire::component('site-post-create',
+                \Jiny\Posts\Http\Livewire\SitePostCreate::class);
+
         });
 
     }
